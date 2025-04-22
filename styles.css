@@ -1,20 +1,148 @@
 /* CSS by ///ADD/// YOUR NAME */
 
 /* Imported Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wdth,wght@0,18..144,87..112,300..900;1,18..144,87..112,300..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wdth,wght@0,18..144,87..112,300..900;1,18..144,87..112,300..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
 
 /* ///ADD/// CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1.5;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
 
 /* Root Variables */
 :root {
-  --blue-bulletin: #1D3557;
-  --news-flash: #E63946;
-  --watchdog-white: #F1FAEE;
+  --blue-bulletin: #1d3557;
+  --news-flash: #e63946;
+  --watchdog-white: #f1faee;
   --truth-text: #333;
-  --story-subtitle: #457B9D;
+  --story-subtitle: #457b9d;
   --font-body: "Source Sans 3", sans-serif;
-  --font-heading: 'Merriweather', serif;
+  --font-heading: "Merriweather", serif;
   --shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
   --transition: all 0.5s ease;
 }
@@ -39,27 +167,286 @@ body.dark-mode {
 }
 
 /* ///ADD/// Skip Link Styles */
+.sr-only {
+  background: var(--story-subtitle);
+  height: 1rem;
+  padding: 1.5rem;
+  position: absolute;
+  transform: translateX(-250%);
+  transition: transform 0.3s;
+}
+.sr-only:focus {
+  transform: translateX(0%);
+}
 
 /* ///ADD/// Navigation Styles */
+nav {
+  text-align: center;
+  width: 100%;
+  height: 3.5rem;
+  border: 0;
+}
 
+
+nav ul {
+  text-align: center;
+  list-style: none;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.2s ease-out;
+}
+
+nav li a,
+nav label{
+  display: block;
+  margin-right: 2rem;
+  background-color: var(--news-flash);
+  padding: 0.5rem;
+  text-decoration: none;
+  color: var(--soft-white);
+  text-transform: uppercase;
+  font-weight: bold;
+}
+nav a:hover,
+nav input:hover {
+  color: var(--soft-white);
+}
+
+input:checked ~ ul {
+  max-height: 500px;
+}
+
+footer ul li{
+  overflow: visible;
+  display: inline-block;
+  list-style: none;
+  margin: 1rem 1rem 1rem 0rem;
+}
+
+footer li a {
+  background-color: var(--news-flash);
+  padding: 0.5rem;
+  text-decoration: none;
+  color: var(--soft-white);
+  text-transform: uppercase;
+}
 /* ///ADD/// Global Layout Styles */
 
+body {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+header,
+nav {
+  background-color: var(--blue-bulletin);
+  color: var(--watchdog-white);
+}
+
+header,
+main,
+footer {
+  padding: 1rem 2rem;
+}
+
+nav {
+  padding-left: 2rem;
+  z-index: 999;
+}
+
+#main h2 {
+  margin-top: 1.5rem;
+}
+
+blockquote {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+#breakingNews,
+#featured {
+  display: grid;
+}
+
+#breakingNews h2,
+#featured h2 {
+  grid-column: 1/-1;
+}
+
+.redContainer,
+#featured section {
+  /* margin: 0 auto 3rem auto; */
+  margin: 0 0 0.5rem 0;
+  grid-template-columns: 1fr;
+  padding: 1rem;
+  box-shadow: var(--shadow);
+  border: solid 1px var(--story-subtitle);
+}
+
+.redContainer video {
+  width: 100%;
+}
+.redContainer h3,
+#featured h3 {
+  border-radius: 0.25rem 0.25rem 0 0;
+  margin-bottom: 0.5rem;
+  border-bottom: solid 1px var(--watchdog-white);
+}
+
+#featured h3 {
+  border-color: var(--story-subtitle);
+}
+.redContainer {
+  background-color: var(--news-flash);
+  border-color: var(--truth-text);
+  margin: 0.5rem;
+  display: grid;
+}
+
+#formStyle section {
+  display: grid;
+  margin-bottom: 1rem;
+}
+
+#formStyle section input {
+  width: 100%;
+  height: 2rem;
+}
+
+
+#formStyle fieldset {
+  display: grid;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+#submit {
+  color: var(--watchdog-white);
+  background-color: var(--blue-bulletin);
+  height: 2.5rem;
+}
+
+footer {
+  background-color: var(--blue-bulletin);
+  color: var(--watchdog-white);
+  padding-top: 3rem;
+}
+
+footer p{
+  text-align: center;
+  margin: 1rem;
+}
+
 /* ///ADD/// Global Text Styles */
+body {
+  font-family: var(--font-body);
+}
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+}
 
+h1 {
+  font-size: 2.5em;
+}
+h2 {
+  font-size: 1.5em;
+}
+h3 {
+  font-size: 1em;
+}
+
+.tagline {
+  font-family: var(--font-heading);
+  letter-spacing: -0.5px;
+}
+
+.redContainer {
+  color: var(--watchdog-white);
+}
 /* ///ADD/// medium styles 620px */
-
+@media screen and (min-width: 620px) {
+  nav ul {
+    overflow: visible;
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+  }
+  nav h2 {
+    visibility: hidden;
+    height: 1px;
+    width: 1px;
+  }
+  nav label,
+  nav input {
+    display: none;
+  }
+  #breakingNews,
+  #featured,
+  #formStyle > section {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  #formStyle fieldset {
+    grid-template-columns: 1fr 1fr;
+    border-color: var(--blue-bulletin);
+  }
+}
 
 /* ///ADD/// large styles 920px */
-
+@media screen and (min-width: 920px) {
+  nav ul {
+    overflow: visible;
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+  }
+  nav h2 {
+    visibility: hidden;
+    height: 1px;
+    width: 1px;
+  }
+  #featured {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
 
 /* ///ADD/// x-large styles 1024px */
-
+@media screen and (min-width: 1024px) {
+  nav ul {
+    overflow: visible;
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+  }
+  nav h2 {
+    visibility: hidden;
+    height: 1px;
+    width: 1px;
+  }
+  #formStyle fieldset {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  header,
+  nav,
+  main,
+  footer {
+    padding-left: 7rem;
+    padding-right: 7rem;
+  }
+}
 
 /* ///ADD/// Interaction Queries for color scheme light and dark and motion preference */
 
-
 /* ///ADD///  Feature Query for :has() that checks if the #menu-toggle is checked */
 @supports (selector(:has(*))) {
-
+  .mobile-nav:has(#menu-toggle:checked) .menu {
+    display: block;
+  }
 }
