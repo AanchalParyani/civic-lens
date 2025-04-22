@@ -191,6 +191,8 @@ nav ul {
   text-align: center;
   list-style: none;
   overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.2s ease-out;
 }
 
 nav li a,
